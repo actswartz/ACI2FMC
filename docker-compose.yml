@@ -1,0 +1,16 @@
+version: '3'
+services:
+  aci2fmc:
+    container_name: aci2fmc_objects
+    image: b0066365/aci2fmc:v0.1
+    restart: always
+    volumes:
+    - .:/mnt/scripts/fmc
+    command: python /mnt/scripts/fmc/aci2fmc.py
+  fmc_deploy:
+    container_name: aci2fmc_deploy
+    image: b0066365/aci2fmc:v0.1
+#    restart: always
+    volumes:
+    - .:/mnt/scripts/fmc
+    command: python /mnt/scripts/fmc/fmcDeploy.py
